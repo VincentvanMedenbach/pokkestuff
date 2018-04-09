@@ -34,7 +34,8 @@ class pikachu extends pokemon {
 		}
 		double newHealth = enemy.health - damage;
 		enemy.health = (int) newHealth;
-		System.out.println(enemy.health + " " + newHealth + " " + damage + " " + attack + " " +  (enemy.health - damage));
+		System.out
+				.println(enemy.health + " " + newHealth + " " + damage + " " + attack + " " + (enemy.health - damage));
 		System.out.println(enemy.naam + "health is now at:" + enemy.health);
 	}
 }

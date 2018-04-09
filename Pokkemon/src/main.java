@@ -1,6 +1,5 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 public class main extends JPanel {
@@ -10,7 +9,6 @@ public class main extends JPanel {
 		frame.setLayout(null);
 		frame.setVisible(true);
 		frame.setSize(1000, 1000);
-
 		final JPopupMenu popup = new JPopupMenu();
 
 		Object harry = new pikachu("harry");
@@ -36,8 +34,7 @@ public class main extends JPanel {
 						index = i;
 					}
 				}
-				((pikachu) harry).attack( (Charmeleon) charmeleon, index);
-
+				((pikachu) harry).attack((Charmeleon) charmeleon, index);
 			}
 		});
 		frame.pack();
