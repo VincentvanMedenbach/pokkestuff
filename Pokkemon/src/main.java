@@ -15,12 +15,12 @@ public class main extends JPanel {
 		frame.setLayout(null);
 		JPanel panel = new JPanel();
 		frame.setPreferredSize(new Dimension(1350, 650));
-
 		// begin of Layout item
-		((pokemon) harry).addButtons(frame, (Charmeleon) charmeleon);
-		((Charmeleon) charmeleon).addButtons(frame, (pikachu) harry);
+		(harry).addButtons(frame, charmeleon);
+		(charmeleon).addButtons(frame, harry);
 		// end of frame items
 		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 

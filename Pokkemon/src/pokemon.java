@@ -23,7 +23,7 @@ class pokemon {
 	public String[] attackNames;
 	public int[] attackValues;
 
-	public void addButtons(JFrame frame, pikachu enemy) {
+	public void addButtons(JFrame frame, pokemon enemy) {
 		final JComboBox<String> cb = new JComboBox<String>(this.attackNames);
 		final JLabel healthBox = new JLabel("health: " + Integer.toString(enemy.health));
 		final JLabel naam = new JLabel("Charmeleon:" + this.naam);
