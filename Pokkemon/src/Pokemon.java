@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -21,30 +20,30 @@ class Pokemon {
 	protected ArrayList<String> resistanceNames = new ArrayList<String>();
 	protected ArrayList<String> attackNames = new ArrayList<String>();
 	protected ArrayList<Integer> attackValues = new ArrayList<Integer>();;
-	private int count = 0;
+	static int count = 0;
 
 	public void addButtons(JFrame frame, Pokemon enemy, Pokemon current) {
 		final JComboBox<String> cb = new JComboBox<String>();
 		cb.setModel(new DefaultComboBoxModel(attackNames.toArray()));
 		final JLabel healthBox = new JLabel("health: " + Integer.toString(enemy.health));
-		final JLabel naam = new JLabel("Charmeleon:" + current.naam);
+		final JLabel naam = new JLabel(current.naam);
 
 		JButton button = new JButton("Attack");
 		JButton resetButton = new JButton("reset");
 
 		cb.setVisible(true);
-		cb.setBounds(700 + count, 100, 500, 100);
+		cb.setBounds(700 - count - ((count != 0) ? 200 : 0), 100, 500, 100);
 
-		button.setBounds(1200 + count, 100, 100, 100);
-		
+		button.setBounds(1200 - count - ((count != 0) ? 200 : 0), 100, 100, 100);
+
 		healthBox.setVisible(true);
 
-		healthBox.setBounds(200 + count, 300, 200, 200);
+		healthBox.setBounds(200 + count + ((count != 0) ? 200 : 0), 300, 200, 200);
 
 		naam.setVisible(true);
-		naam.setBounds(700 + count, 0, 100, 100);
+		naam.setBounds(700 - count, 0, 100, 100);
 
-		resetButton.setBounds(500 + count, 300, 100, 100);
+		resetButton.setBounds(600 + count + ((count != 0) ? 200 : 0), 300, 100, 100);
 
 		healthBox.setFont(new Font("Serif", Font.PLAIN, 50));
 
@@ -77,7 +76,8 @@ class Pokemon {
 			}
 
 		});
-		count++;
+		count += 400;
+		System.out.println(count);
 	}
 
 	public void attack(Pokemon enemy, int attack) {
