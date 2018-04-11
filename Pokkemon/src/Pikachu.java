@@ -1,6 +1,7 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.AbstractAction;
@@ -11,13 +12,23 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-class Pikachu extends Pokemon {
+class Pikachu extends Pokemon{
 	public String naam = "";
 
 	Pikachu(String pokenaam) {
 		System.out.println("pikachu " + pokenaam + " created!");
 		this.naam = pokenaam;
 		System.out.println(this.naam);
+		 energytype;
+		hitpoints = 60;
+		 health = 60;
+	      weakness.add(1.5);
+		weaknessType = { "fire" };
+		resistanceValues = {};
+		resistanceNames = {};
+		attackNames = { "electric Ring", "pika Punch" };
+		attackValues = { 50, 20 };
+		
 	}
 
 	public String[] energytype = { "lightning" };
@@ -30,26 +41,4 @@ class Pikachu extends Pokemon {
 	public String[] attackNames = { "electric Ring", "pika Punch" };
 	public int[] attackValues = { 50, 20 };
 
-	public void attack(Charmeleon enemy, int attack) {
-		if (enemy.health > 0) {
-			System.out.println();
-			double damage = this.attackValues[attack];
-			if (enemy.weaknessType == this.energytype) {
-				damage = damage * enemy.weakness[0];
-				System.out.println("Super effective!");
-			}
-			if (enemy.energytype == this.resistanceNames) {
-				damage = damage / enemy.resistanceValues[0];
-				System.out.println("Not effective!");
-			}
-			double newHealth = enemy.health - damage;
-			enemy.health = (int) newHealth;
-			if (enemy.health < 0) {
-				enemy.health = 0;
-			}
-			System.out.println(
-					enemy.health + " " + newHealth + " " + damage + " " + attack + " " + (enemy.health - damage));
-			System.out.println(enemy.naam + "health is now at:" + enemy.health);
-		}
-	}
 }

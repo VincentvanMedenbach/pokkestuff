@@ -1,6 +1,7 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -8,20 +9,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 class Pokemon {
-
-	public String naam;
-	public String[] energytype;
-	public int hitpoints;
-	public int health;
-
-	public double[] weakness;
-	public String[] weaknessType;
-
-	public int[] resistanceValues = {};
-	public String[] resistanceNames = {};
-
-	public String[] attackNames;
-	public int[] attackValues;
+	protected String naam;
+	protected ArrayList<String> energytype;
+	protected int hitpoints;
+	protected int health;
+	protected double[] weakness;
+	protected ArrayList<String> weaknessType = new ArrayList<String>();
+	protected ArrayList<Integer> resistanceValues = new ArrayList<Integer>();
+	protected ArrayList<String> resistanceNames = new ArrayList<String>();
+	protected ArrayList<String> attackNames = new ArrayList<String>();
+	protected int[] attackValues;
 
 	public void addButtons(JFrame frame, Pokemon enemy, Pokemon current) {
 		final JComboBox<String> cb = new JComboBox<String>(current.attackNames);
