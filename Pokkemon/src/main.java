@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class main extends JPanel {
-	static pokemon harry = new pikachu("harry");
-	static pokemon charmeleon = new Charmeleon("bob");
+	static Pokemon harry = new Pikachu("harry");
+	static Pokemon charmeleon = new Charmeleon("bob");
 	int positioning = 0;
 
 	public static void main(String[] args) {
@@ -16,8 +16,8 @@ public class main extends JPanel {
 		JPanel panel = new JPanel();
 		frame.setPreferredSize(new Dimension(1350, 650));
 		// begin of Layout item
-		(harry).addButtons(frame, charmeleon);
-		(charmeleon).addButtons(frame, harry);
+		(harry).addButtons(frame, charmeleon, harry);
+		(charmeleon).addButtons(frame, harry, charmeleon);
 		// end of frame items
 		frame.pack();
 		frame.setLocationRelativeTo(null);

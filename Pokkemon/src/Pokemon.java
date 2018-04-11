@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-class pokemon {
+class Pokemon {
 
 	public String naam;
 	public String[] energytype;
@@ -23,10 +23,10 @@ class pokemon {
 	public String[] attackNames;
 	public int[] attackValues;
 
-	public void addButtons(JFrame frame, pokemon enemy) {
-		final JComboBox<String> cb = new JComboBox<String>(this.attackNames);
+	public void addButtons(JFrame frame, Pokemon enemy, Pokemon current) {
+		final JComboBox<String> cb = new JComboBox<String>(current.attackNames);
 		final JLabel healthBox = new JLabel("health: " + Integer.toString(enemy.health));
-		final JLabel naam = new JLabel("Charmeleon:" + this.naam);
+		final JLabel naam = new JLabel("Charmeleon:" + current.naam);
 
 		JButton button = new JButton("Attack");
 		JButton resetButton = new JButton("reset");
@@ -78,7 +78,7 @@ class pokemon {
 		});
 	}
 
-	public void attack(pokemon enemy, int attack) {
+	public void attack(Pokemon enemy, int attack) {
 		if (enemy.health > 0) {
 			System.out.println();
 			double damage = this.attackValues[attack];

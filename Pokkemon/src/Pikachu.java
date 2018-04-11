@@ -11,10 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-class pikachu extends pokemon {
+class Pikachu extends Pokemon {
 	public String naam = "";
 
-	pikachu(String pokenaam) {
+	Pikachu(String pokenaam) {
 		System.out.println("pikachu " + pokenaam + " created!");
 		this.naam = pokenaam;
 		System.out.println(this.naam);

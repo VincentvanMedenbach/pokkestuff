@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Charmeleon extends pokemon {
+public class Charmeleon extends Pokemon {
 	Charmeleon(String pokenaam) {
 		System.out.println("Charmeleon created!");
 		this.naam = pokenaam;
