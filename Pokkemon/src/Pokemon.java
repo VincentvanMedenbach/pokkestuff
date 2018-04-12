@@ -13,7 +13,7 @@ class Pokemon {
 	protected String naam;
 	protected ArrayList<String> energytype = new ArrayList<String>();
 	protected int hitpoints;
-	protected int health;
+	protected static int health;
 	protected ArrayList<Double> weakness = new ArrayList<Double>();
 	protected ArrayList<String> weaknessType = new ArrayList<String>();
 	protected ArrayList<Integer> resistanceValues = new ArrayList<Integer>();
@@ -52,7 +52,14 @@ class Pokemon {
 		frame.add(button);
 		frame.add(healthBox);
 		frame.add(resetButton);
+		resetButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent f) {
+				System.out.println("reset");
+				health = 60;
+				healthBox.setText("health: " + Integer.toString(enemy.health));
+			}
 
+		});
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (enemy.health > 0 && health > 0) {
@@ -69,13 +76,7 @@ class Pokemon {
 				}
 			}
 		});
-		resetButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent f) {
-				health = 60;
-				healthBox.setText("health: " + Integer.toString(enemy.health));
-			}
 
-		});
 		count += 400;
 		System.out.println(count);
 	}
@@ -84,22 +85,30 @@ class Pokemon {
 		if (enemy.health > 0) {
 			System.out.println();
 			double damage = attackValues.get(attack);
-			if (enemy.weaknessType == this.energytype) {
-				damage = damage * enemy.weakness.get(0);
-				System.out.println("Super effective!");
+			for (int l = 0; l < enemy.weaknessType.size(); l++) {
+				for (int i = 0; i < weaknessType.size(); i++) {
+					if (enemy.weaknessType.get(l) == this.energytype.get(i)) {
+						damage = damage * enemy.weakness.get(i);
+						System.out.println("Super effective!");
+					}
+				}
 			}
-			if (enemy.energytype == this.resistanceNames) {
-				damage = damage / enemy.resistanceValues.get(0);
-				System.out.println("Not effective!");
+			for (int l = 0; l < enemy.resistanceNames.size(); l++) {
+				for (int i = 0; i < resistanceNames.size(); i++) {
+					if (enemy.energytype.get(l) == this.resistanceNames.get(i)) {
+						damage = damage / enemy.resistanceValues.get(0);
+						System.out.println("Not effective!");
+					}
+				}
 			}
 			double newHealth = enemy.health - damage;
 			enemy.health = (int) newHealth;
 			if (enemy.health < 0) {
 				enemy.health = 0;
 			}
-			System.out.println(
-					enemy.health + " " + newHealth + " " + damage + " " + attack + " " + (enemy.health - damage));
-			System.out.println(enemy.naam + "health is now at:" + enemy.health);
+//			System.out.println(
+//					enemy.health + " " + newHealth + " " + damage + " " + attack + " " + (enemy.health - damage));
+//			System.out.println(enemy.naam + "health is now at:" + enemy.health);
 		}
 	}
 
