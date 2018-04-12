@@ -22,6 +22,7 @@ class Pokemon {
 	protected ArrayList<Integer> attackValues = new ArrayList<Integer>();;
 	static int count = 0;
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addButtons(JFrame frame, Pokemon enemy, Pokemon current) {
 		final JComboBox<String> cb = new JComboBox<String>();
 		cb.setModel(new DefaultComboBoxModel(attackNames.toArray()));
@@ -45,7 +46,7 @@ class Pokemon {
 
 		resetButton.setBounds(600 + count + ((count != 0) ? 200 : 0), 300, 100, 100);
 
-		healthBox.setFont(new Font("Serif", Font.PLAIN, 50));
+		healthBox.setFont(new Font("Serif", Font.PLAIN, 45));
 
 		frame.add(naam);
 		frame.add(cb);
@@ -54,7 +55,7 @@ class Pokemon {
 		frame.add(resetButton);
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent f) {
-				System.out.println("reset");
+				// System.out.println("reset");
 				health = 60;
 				healthBox.setText("health: " + Integer.toString(enemy.health));
 			}
@@ -78,7 +79,7 @@ class Pokemon {
 		});
 
 		count += 400;
-		System.out.println(count);
+		// System.out.println(count);
 	}
 
 	public void attack(Pokemon enemy, int attack) {
@@ -106,9 +107,10 @@ class Pokemon {
 			if (enemy.health < 0) {
 				enemy.health = 0;
 			}
-//			System.out.println(
-//					enemy.health + " " + newHealth + " " + damage + " " + attack + " " + (enemy.health - damage));
-//			System.out.println(enemy.naam + "health is now at:" + enemy.health);
+			// System.out.println(
+			// enemy.health + " " + newHealth + " " + damage + " " + attack + " " +
+			// (enemy.health - damage));
+			// System.out.println(enemy.naam + "health is now at:" + enemy.health);
 		}
 	}
 
