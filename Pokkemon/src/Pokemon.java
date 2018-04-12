@@ -87,17 +87,17 @@ class Pokemon {
 			System.out.println();
 			double damage = attackValues.get(attack);
 			for (int l = 0; l < enemy.weaknessType.size(); l++) {
-				for (int i = 0; i < weaknessType.size(); i++) {
+				for (int i = 0; i < this.energytype.size(); i++) {
 					if (enemy.weaknessType.get(l) == this.energytype.get(i)) {
-						damage = damage * enemy.weakness.get(i);
-						System.out.println("Super effective!");
+						damage = damage * enemy.weakness.get(l);
+						System.out.println(enemy.weakness.get(l) + "Super effective!");
 					}
 				}
 			}
-			for (int l = 0; l < enemy.resistanceNames.size(); l++) {
+			for (int l = 0; l < enemy.energytype.size(); l++) {
 				for (int i = 0; i < resistanceNames.size(); i++) {
 					if (enemy.energytype.get(l) == this.resistanceNames.get(i)) {
-						damage = damage / enemy.resistanceValues.get(0);
+						damage = damage / enemy.resistanceValues.get(i);
 						System.out.println("Not effective!");
 					}
 				}
